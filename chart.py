@@ -18,7 +18,7 @@ def chart(data):
             object_columns.append(column)
 
     while True:
-        typechart = input(f'Select your chart (bar, line, scatter, box): ').lower()
+        typechart = input(f'Select your chart (bar,box): ').lower()
 
         if typechart == 'bar':
             # Bar chart requires x-axis categorical and y-axis numerical
@@ -30,19 +30,6 @@ def chart(data):
             else:
                 print("Invalid column selection! Please check if the column names exist.")
             break
-
-        elif typechart == 'scatter':
-            # Scatter plot requires both axes to be numerical
-            x = input(f'Select your x-axis (numerical from {int_columns}): ')
-            y = input(f'Select your y-axis (numerical from {int_columns}): ')
-
-            if x in data.columns and y in data.columns:
-                sns.scatterplot(x=x, y=y, data=data)
-                plt.show()
-            else:
-                print("Invalid column selection! Please check if the column names exist.")
-            break
-
         elif typechart == 'box':
             # Box plot typically uses categorical x-axis and numerical y-axis
             x = input(f'Select your x-axis (categorical from {object_columns}): ')
