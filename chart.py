@@ -23,10 +23,10 @@ def chart(data):
         if typechart == 'bar':
             # Bar chart requires x-axis categorical and y-axis numerical
             while True:
-                x = input(f'Select your x-axis (categorical from {object_columns}): ')
+                x = input(f'Select your x-axis (categorical from {data.columns}): ')
                 
                 if x in data.columns:
-                    sns.displot(x=x, data=data,kde=True,hue="Gender")
+                    sns.displot(x=x, data=data,hue="Gender",multiple="stack")
                     plt.show()
                     print(f'Exit x')
                 elif x == 'x':
