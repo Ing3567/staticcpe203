@@ -22,14 +22,18 @@ def chart(data):
 
         if typechart == 'bar':
             # Bar chart requires x-axis categorical and y-axis numerical
-            x = input(f'Select your x-axis (categorical from {object_columns}): ')
-            
-            if x in data.columns:
-                sns.displot(x=x, data=data,kde=True,hue="Gender")
-                plt.show()
-            else:
-                print("Invalid column selection! Please check if the column names exist.")
-            break
+            while True:
+                x = input(f'Select your x-axis (categorical from {object_columns}): ')
+                
+                if x in data.columns:
+                    sns.displot(x=x, data=data,kde=True,hue="Gender")
+                    plt.show()
+                    print(f'Exit x')
+                elif x == 'x':
+                    break
+                else:
+                    print("Invalid column selection! Please check if the column names exist.")
+                break
         elif typechart == 'box':
             # Box plot typically uses categorical x-axis and numerical y-axis
             x = input(f'Select your x-axis (categorical from {object_columns}): ')
