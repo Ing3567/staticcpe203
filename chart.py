@@ -45,7 +45,8 @@ def chart(data):
             else:
                 print("Invalid column selection! Please check if the column names exist.")
             break
-
+        elif typechart == 'x':
+            break
         else:
             print("Invalid chart type selected! Please try again.")
 
