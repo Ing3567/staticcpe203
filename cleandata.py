@@ -7,6 +7,7 @@ def cleanGender(gender):
         return 'FEMALE'
     else:
         return gender
+    
 
 def CleanAge(data):
     data = data[(data['Age'] >= 0) & (data['Age'] <= 100)]  # fix this line
@@ -19,4 +20,5 @@ def cleandata(data):
     data['Age'] = data['Age'].apply(lambda x: abs(x))  # Ensuring positive values for Age
     data = CleanAge(data)
     data = data[(data['Gender'] == 'MALE') | (data['Gender'] == 'FEMALE')]
+    data = data[(data['leave'] != 'Don\'t know')]
     return data

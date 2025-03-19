@@ -6,12 +6,8 @@ def p_value(data):
 
     y = input('Select You y-axis: ')
 
-
-
-        
     data = pd.crosstab(data['leave'], data[y])
-
-    
+  
     chi2, p, dof, expected = chi2_contingency(data)
 
     print(data)
@@ -19,4 +15,4 @@ def p_value(data):
     print("p-value:", p)
     print("Degrees of Freedom:", dof)
     print("Expected Frequencies Table:")
-    print(f'Exit enter X')
+    print(expected)
