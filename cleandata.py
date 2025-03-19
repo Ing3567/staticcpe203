@@ -10,7 +10,23 @@ def cleanGender(gender):
     
 
 def CleanAge(data):
-    data = data[(data['Age'] >= 0) & (data['Age'] <= 100)]  # fix this line
+    # กรองค่าที่อยู่ระหว่าง 0 และ 100 ก่อน
+    data = data[(data['Age'] >= 0) & (data['Age'] <= 100)]
+    
+    # คำนวณ quartiles
+    Q1 = data['Age'].quantile(0.25)
+    Q3 = data['Age'].quantile(0.75)
+    
+    # คำนวณ Interquartile Range (IQR)
+    IQR = Q3 - Q1
+    
+    # คำนวณค่า outliers (1.5 เท่าของ IQR)
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
+    
+    # กำจัดค่า outliers
+    data = data[(data['Age'] >= lower_bound) & (data['Age'] <= upper_bound)]
+    
     return data
 
 def cleandata(data):
