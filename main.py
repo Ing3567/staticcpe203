@@ -3,6 +3,7 @@ from cleandata import cleandata
 import seaborn as sns
 from chart import chart
 from p_value import p_value
+from CorrelationAnalysis import CorrelationAnalysis
 
 dp = pd.read_csv('survey.csv')
 
@@ -20,6 +21,8 @@ for column in dp.columns:
 num_columns = dp.shape[0]
 print("จำนวนคอลัมน์:", num_columns)
 
+
+CorrelationAnalysis(dp)
 
 
 sns.set_theme()
