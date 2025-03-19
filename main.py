@@ -24,8 +24,11 @@ print("จำนวนคอลัมน์:", num_columns)
 
 sns.set_theme()
 while (True):
+    print(f'exit x')
     type = input('chart or p-value: ')
     if(type == 'chart'):
         chart(dp)
     elif(type == 'p-value'):
         p_value(dp)
+    elif(type == 'x'):
+        break
