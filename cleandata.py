@@ -21,4 +21,5 @@ def cleandata(data):
     data = CleanAge(data)
     data = data[(data['Gender'] == 'MALE') | (data['Gender'] == 'FEMALE')]
     data = data[(data['leave'] != 'Don\'t know')]
+    data = data[(data['benefits'] != 'Don\'t know')]
     return data
