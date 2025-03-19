@@ -8,7 +8,7 @@ def cleanGender(gender):
     else:
         return gender
 
-def cleanOutline(data):
+def CleanAge(data):
     # คำนวณ IQR (Interquartile Range)
     Q1 = data['Age'].quantile(0.25)  # ควอไทล์ที่ 1 (Q1)
     Q3 = data['Age'].quantile(0.75)  # ควอไทล์ที่ 3 (Q3)
@@ -27,6 +27,6 @@ def cleandata(data):
     data['Gender'] = data['Gender'].str.strip()
     data['Gender'] = data['Gender'].apply(cleanGender)
     data['Age'] = data['Age'].apply(lambda x: abs(x))  # Ensuring positive values for Age
-    data = cleanOutline(data)
+    data = CleanAge(data)
     data = data[(data['Gender'] == 'MALE') | (data['Gender'] == 'FEMALE')]
     return data
