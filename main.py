@@ -3,6 +3,7 @@ from cleandata import cleandata
 import seaborn as sns
 from chart import chart
 import matplotlib.pyplot as plt
+from p_value import p_value
 
 dp = pd.read_csv('survey.csv')
 
@@ -20,9 +21,9 @@ for column in dp.columns:
 
 
 sns.set_theme()
-chart(dp)
-
-
-
-
-
+while (True):
+    type = input('chart or p-value: ')
+    if(type == 'chart'):
+        chart(dp)
+    elif(type == 'p-value'):
+        p_value(dp)
