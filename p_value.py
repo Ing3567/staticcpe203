@@ -20,4 +20,3 @@ def p_value(data):
         print("Reject the null hypothesis: There is a significant association between the variables.")
     else:
         print("Fail to reject the null hypothesis: No significant association between the variables.")
-    return p

@@ -26,7 +26,7 @@ def chart(data):
                 x = input(f'Select your x-axis (categorical from {data.columns}): ')
                 
                 if x in data.columns:
-                    sns.displot(x=x, data=data,hue="Gender",multiple="stack")
+                    sns.displot(x=x, data=data,hue="leave",multiple="stack")
                     plt.show()
                     print(f'Exit x')
                 elif x == 'x':
