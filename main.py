@@ -3,6 +3,7 @@ from cleandata import cleandata
 import seaborn as sns
 from chart import chart
 from p_value import p_value
+from chisquare3col import chisquare3col
 
 dp = pd.read_csv('survey.csv')
 
@@ -25,10 +26,12 @@ print("จำนวนคอลัมน์:", num_columns)
 sns.set_theme()
 while (True):
     print(f'exit x')
-    type = input('chart or p-value: ')
+    type = input('chart or p-value or chisquare: ')
     if(type == 'chart'):
         chart(dp)
     elif(type == 'p-value'):
         p_value(dp)
+    elif(type == 'chisquare3col'):
+        chisquare3col(dp)
     elif(type == 'x'):
         break

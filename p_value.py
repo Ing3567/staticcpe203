@@ -16,3 +16,8 @@ def p_value(data):
     print("Degrees of Freedom:", dof)
     print("Expected Frequencies Table:")
     print(expected)
+    if p < 0.05:
+        print("Reject the null hypothesis: There is a significant association between the variables.")
+    else:
+        print("Fail to reject the null hypothesis: No significant association between the variables.")
+    return p
